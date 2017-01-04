@@ -164,7 +164,7 @@ mCanvas.drawBitmap(mBitmap, getImageMatrix(), mMaskPaint);
 #### 一些方法
 
 |方法名|用处|
-|--|--|
+|---|---|
 |setOffsetX(float howMuch)|设置滑块移动距离(@param howMuch 0-100内数字，表示百分比)|
 |restore()|重置验证区域位置（重新生成拼图path）|
 |deal()|判断是否成功|

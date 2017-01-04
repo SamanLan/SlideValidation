@@ -7,9 +7,12 @@
 > 这里也贴一下原作者文章链接:http://qingmang.me/articles/-4771769944547152798
 
 看得喜欢关系点个star。欢迎关注[我的博客](http://www.jianshu.com/users/25018a1e0b12/)
+
 先看一下效果图
 ![效果图](http://p1.bpimg.com/567571/fe95bf58e635042d.gif)
+
 效果还是不错的。
+
 
 #### 用法，SlideValidationView 是继承自ImageView，所以验证码图片直接set就行。
 ```
@@ -45,6 +48,7 @@ seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
     }
 });
 ```
+
 
 下面说一下实现，也可以选择去看代码，代码里面注释应该很全了。看得喜欢关系点个star。
 第一步：画拼图的path，上下左右四个半圆随机凹凸
@@ -115,6 +119,7 @@ private void creatRandomArc(Path validationPath, int beginX, int beginY, boolean
 ![绘制拼图path](http://p1.bpimg.com/567571/ebd663cff31924c5.png)
 
 
+
 第二步：绘制阴影（设置画笔的setMaskFilter，应该要为这个view关闭硬件加速，否则阴影没作用）
 ```
 // 单独为这个view关闭硬件加速
@@ -148,6 +153,7 @@ mCanvas.drawBitmap(mBitmap, getImageMatrix(), mMaskPaint);
 ```
 
 第四步
+
 绘制滑块的阴影，这里面有个api我也是第一次接触，bitmap.extractAlpha()拿到该bitmap的图片大小等信息，但只有透明度没有颜色，返回一张新的bitmap。我们通过设置画笔的阴影来绘制新的bitmap即可绘制出滑块的阴影
 ```
 // extractAlpha拿到原bitmap的区域，只有透明度Bitmap
@@ -156,11 +162,13 @@ mCanvas.drawBitmap(mBitmap, getImageMatrix(), mMaskPaint);
 ![绘制滑块和阴影](http://p1.bpimg.com/567571/940cc52260b2e731.png)
 
 #### 一些方法
+
 |方法名|用处|
 |--|--|
 |setOffsetX(float howMuch)|设置滑块移动距离(@param howMuch 0-100内数字，表示百分比)|
 |restore()|重置验证区域位置（重新生成拼图path）|
 |deal()|判断是否成功|
 |setListener(SlideListener listener)|设置监听器|
+
 
 详细请去看代码，代码里面注释应该很全了。看得喜欢关系点个star。欢迎关注[我的博客](http://www.jianshu.com/users/25018a1e0b12/)
